@@ -1,0 +1,15 @@
+---
+- name: Install java
+  hosts: webservers
+
+
+  tasks:
+    - name: Update the System Packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+
+    - name: Install JAVA
+      apt:
+        name: jdk-11
+        state: present
