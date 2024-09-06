@@ -1,0 +1,13 @@
+git script:
+git '
+
+
+
+
+
+
+
+ansible pipline script :
+
+ansiblePlaybook credentialsId: 'ans-root', disableHostKeyChecking: true, installation: 'local-ansible', inventory: 'host.inv', playbook: 'java.yml', vaultTmpPath: ''
+
