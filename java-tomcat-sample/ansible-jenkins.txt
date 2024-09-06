@@ -9,5 +9,5 @@ git '
 
 ansible pipline script :
 
-ansiblePlaybook credentialsId: 'ans-root', disableHostKeyChecking: true, installation: 'local-ansible', inventory: 'host.inv', playbook: 'java.yml', vaultTmpPath: ''
+ansiblePlaybook credentialsId: 'ans-root', disableHostKeyChecking: true, installation: 'local-ansible', inventory: 'java-tomcat-sample/host.inv', playbook: 'java-tomcat-sample/java.yml', vaultTmpPath: ''
 
