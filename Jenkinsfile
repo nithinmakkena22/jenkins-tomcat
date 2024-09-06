@@ -37,7 +37,7 @@ stage('Build Application') {
 stage('Upload War To Nexus'){
             steps{
                 script{
-                          nexusArtifactUploader artifacts: [[artifactId: 'MAVEN-PROJECT-2024-09-05-BUILD02', classifier: '', file: '/var/lib/jenkins/workspace/jenkins-5/java-tomcat-sample/target/MAVEN-PROJECT-2024-09-05-BUILD02-0.0.1.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.example', nexusUrl: '172.31.28.126:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'tomcat-5', version: '0.0.1'
+                          nexusArtifactUploader artifacts: [[artifactId: 'MAVEN-PROJECT-2024-09-05-BUILD02', classifier: '', file: '/var/lib/jenkins/workspace/jenkins-5/java-tomcat-sample/target/MAVEN-PROJECT-2024-09-05-BUILD02-0.0.1.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.example', nexusUrl: '172.31.28.126:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'tomcat-7', version: '0.0.1'
                 
                     }
             }
