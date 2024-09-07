@@ -1,8 +1,42 @@
+---
+- name: Download Tomcat8 from tomcat.apache.org
+  hosts: web
+  vars:
+    download_url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.28/bin/apache-tomcat-10.1.28.tar.gz
+  tasks:
+  
 
----    
-  - name: Move files to the /opt/tomcat8 directory
+   - name: Create the group
      become: yes
-     become_user: webservers
+     group: 
+      name: tomcat
+      state: present
+   - name: Create the user
+     become: yes
+     user:
+        name: tomcat
+        state: present
+   - name: Create a Directory /opt/tomcat8
+     become: yes
+     file:
+       path: /opt/tomcat8
+       state: directory
+       mode: 0755
+       owner: tomcat
+       group: tomcat
+   - name: Download Tomcat using unarchive
+     become: yes
+     unarchive:
+       src: "{{download_url}}"
+       dest: /opt/tomcat8
+       mode: 0755
+       remote_src: yes
+       group: tomcat
+       owner: tomcat
+    
+   - name: Move files to the /opt/tomcat8 directory
+     become: yes
+     become_user: tomcat
      shell: "mv /opt/tomcat8/apache*/* /opt/tomcat8"
    - name: Creating a service file
      become: yes
