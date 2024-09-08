@@ -1,0 +1,8 @@
+stage('Setting the variables values') {
+    steps {
+         sh '''
+            #!/bin/bash
+            sleep 10
+         '''
+    }
+}
