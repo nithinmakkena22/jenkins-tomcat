@@ -1,0 +1,10 @@
+pipeline{
+    agent any
+    stages{
+        stage('ansible-run'){
+            steps{
+                ansiblePlaybook credentialsId: 'ansible', installation: 'ansible-local', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/tomcat.yml', vaultTmpPath: ''
+            }
+        }
+    }
+}
